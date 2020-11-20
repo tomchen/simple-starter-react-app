@@ -12,6 +12,7 @@ module.exports = {
   },
   devServer: {
     port: 8080,
+    open: true,
   },
   module: {
     rules: [
@@ -39,12 +40,15 @@ module.exports = {
           {
             loader: 'postcss-loader',
             options: {
-              ident: 'postcss',
-              plugins: () => [
-                postcssPresetEnv(),
-                postcssNormalize(),
-                cssnano(),
-              ],
+              postcssOptions: {
+                plugins: [
+                  [
+                    postcssPresetEnv(),
+                    postcssNormalize(),
+                    cssnano(),
+                  ],
+                ],
+              },
             },
           },
           'sass-loader',
@@ -61,12 +65,15 @@ module.exports = {
           {
             loader: 'postcss-loader',
             options: {
-              ident: 'postcss',
-              plugins: () => [
-                postcssPresetEnv(),
-                postcssNormalize(),
-                cssnano(),
-              ],
+              postcssOptions: {
+                plugins: [
+                  [
+                    postcssPresetEnv(),
+                    postcssNormalize(),
+                    cssnano(),
+                  ],
+                ],
+              },
             },
           },
         ],
